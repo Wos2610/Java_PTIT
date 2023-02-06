@@ -82,7 +82,7 @@ Gồm 3 loại :
 - Phải khởi tạo giá trị ban đầu trước khi sử dụng.
 
 
-### `*` **Local Variables :** 
+### `*` **Instance Variables :** 
 - Khai báo trong class nhưng ***ngoài*** `method`, `constructor`, `block`.
 - Được tạo ra khi một `object` được tạo với keyword `new` và bị hủy khi `obbject` bị hủy.
 - Đã được khởi tạo giá trị mặc định khi tạo ra.
@@ -97,15 +97,15 @@ Gồm 3 loại :
 Chuyển từ `string` về các kiểu dữ liệu khác :
 
 ```java
-string s = "100";
+String s = "100";
 int a = Integer.parseInt(s);
 ```
 
 Chuyển từ các kiểu dữ liệu khác về `string` :
 ```java
 int a = 100;
-string s1 = String.valueOf(a);
-string s2 = Integer.toString(a);
+String s1 = String.valueOf(a);
+String s2 = Integer.toString(a);
 ```
 ## **5. If else**
 
@@ -153,6 +153,12 @@ a : for(int i = 1; i <= 10; i++){
 while(T-- > 0)
 ```
 
+```java
+int b = a[2];
+b++;
+// b tăng + a[2] tăng
+```
+
 ## **9. Wrapper Class**
 - Chuyển từ `primitive` data types sang `objects` ( khi cần sửa giá trị của biến thông qua dùng hàm vì `primitive` chỉ pass by value )
 - Collections chỉ lưu trữ objects
@@ -192,6 +198,10 @@ int i = a;
 | String substring(int beginIndex, int endIndex) | 
 | String[] split(String regex) | tách String đang xét bằng các regex -> return mảng String |
 
+> Khi so sánh 2 String thì phải dùng hàm. ( Do cấc biến sẽ trỏ đến địa chỉ chứ không phải giá trị của biến ).
+
+> String bất biến, không thể sửa được String.
+
 ## **11. Math Class**
 
 - import java.lang.Math
@@ -199,8 +209,10 @@ int i = a;
 
 ## **12. Regex** ( Regular Expression )
 - in java.util.regex  
+- Là form của một chuỗi kí tự.
+![](https://scontent.fhan14-2.fna.fbcdn.net/v/t39.30808-6/328236323_741497077195967_1309537156808906765_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=dbeb18&_nc_ohc=OPwgpEqNOZkAX-jt7kH&_nc_ht=scontent.fhan14-2.fna&oh=00_AfDk1_1FwMEG9kZRiEu6bTHLKx6cdAUZ_s32D925Pxyj6g&oe=63DF6221)
 
-Regular Expression Syntax
+### **Regular Expression Syntax**
 | | |
 | -- | -- |
 | [abc] | Chứa kí tự bất kì trong [] |
@@ -219,8 +231,11 @@ Regular Expression Syntax
 | \s | whitespace |
 | \w | [a-zA-Z_0-9] |
 
+> [`\\.`] -> Tìm dấu chấm>   
 
-Pattern Class
+> Web kiểm tra Regex : https://regex101.com/
+
+### **Pattern Class**
 
 | Hàm | Công dụng | Ví dụ |
 | -- | -- | -- |
@@ -228,13 +243,15 @@ Pattern Class
 | String pattern() |   |  |
 | Matcher matcher(String input) | Tạo matcher object |Matcher matcher = pattern.matcher(input) |
 
-Matcher Class
+### **Matcher Class**
 
 | Hàm | Công dụng | Ví dụ |
 | -- | -- | -- |
 | boolean find() | tìm trong input biểu thức tiếp theo khớp với pattern  |  |
 | String group() | trả về chuỗi con phù hợp | | 
 
+
+# **OOP**
 
 ## **1. Encapsulation**
 
@@ -253,8 +270,8 @@ class SubClassName extends BaseClassName{
 
 }
 ```
-- Java : chỉ có thừa kế `public` .  
-C++ : thừa kế `public`, `private`, `protected`.
+- Java : chỉ có kế thừa `public` .  
+C++ : kế thừa `public`, `private`, `protected`.
 
 - `super.` + BaseClassVariable : gọi đến biến của lớp cha.
 - `super.` + BaseClassFunctionName + `()` :  để gọi đến phương thức ở lớp cha.
@@ -262,7 +279,7 @@ C++ : thừa kế `public`, `private`, `protected`.
 
 ## **3. Polymorphism**
 
-- Overloading
+- Overloading : cùng tên khác một thứ gì đó.
 - Overriding : định nghĩa lại hàm đã có trong BaseClass.
 ``` java
 class BaseClass {
@@ -295,6 +312,7 @@ public class SubClass extends BaseClass {
 
 ## **5. Stactic Modifier**
 - Chỉ sử dụng bộ nhớ 1 lần để lưu biến static. 
+> Được coi là biến của class, không phải biến của đối tượng.
 - Phương thức static thuộc class  
 Không cần tạo instance   
 Có thể dùng để truy cập và thay đổi biến static.
@@ -305,13 +323,18 @@ Có thể dùng để truy cập và thay đổi biến static.
 - Không thể khởi tạo constructor
 - Variable : public static final
 - Method : public abstract 
+- Kiểu giống một bản định nghĩa, đến các class con phải override lại.
+- Thường là adj/verb
 
 ## **7. Abstract Class**
 - Chứa phương thức abstract.
 - Khi class khác kế thừa abstract class thì phải overidding các abstract method của abstract class.
+- Chỉ được kế thừa, không đi kế thừa class khác.
 - Không thể tạo instance cho abstract class.
 - Phương thức của abstract chỉ có tên, tham số chứ không có thân.
-- Access modifier của các hàm của abstract phải ở public hoặc protected để lớp kế thừa có thể định nghĩa lại và các thuộc tính của lớp abstract 
+- Access modifier của các hàm của abstract phải ở public hoặc protected để lớp kế thừa có thể định nghĩa lại và các thuộc tính của lớp abstract .
+- Thường là noun.
+- Trong abstract class chỉ cần định nghĩa lại abstract methods.
 
 
 
