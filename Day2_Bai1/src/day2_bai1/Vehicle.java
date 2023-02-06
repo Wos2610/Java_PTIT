@@ -4,14 +4,14 @@ import java.util.*;
 public class Vehicle {
     String id;
     String company;
-    double year;
+    int year;
     double price;
     String color;
 
     public Vehicle() {
     }
 
-    public Vehicle(String id, String company, double year, double price, String color) {
+    public Vehicle(String id, String company, int year, double price, String color) {
         this.id = id;
         this.company = company;
         this.year = year;
@@ -32,7 +32,7 @@ public class Vehicle {
         System.out.print("\t Company : ");
         this.company = input.nextLine();
         System.out.print("\t Manufacture year : ");
-        this.year = Double.parseDouble(input.nextLine());
+        this.year = Integer.parseInt(input.nextLine());
         System.out.print("\t Price : ");
         this.price = Double.parseDouble(input.nextLine());
         System.out.print("\t Color : ");
@@ -59,7 +59,7 @@ public class Vehicle {
         return year;
     }
 
-    public void setYear(double year) {
+    public void setYear(int year) {
         this.year = year;
     }
 

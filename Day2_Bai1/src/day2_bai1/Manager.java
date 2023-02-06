@@ -3,14 +3,14 @@ package day2_bai1;
 import java.util.*;
 
 public class Manager {
-    private Vehicle[] vehicles;
+    private List<Vehicle> vehicles;
     private int n;
     private int motorNumber;
     private int truckNumber;
     private int carNumber;
 
     public Manager() {
-        vehicles = new Vehicle[100];
+        vehicles = new ArrayList<Vehicle>();
         n = 0;
     }
 
@@ -22,6 +22,7 @@ public class Manager {
         this.n = n;
     }
     
+    
     public void addNew(){
         System.out.print("How many vehicles do you want to add : ");
         Scanner input = new Scanner(System.in);
@@ -29,25 +30,29 @@ public class Manager {
         while(number-- > 0){
             System.out.println("There are 3 types of vehicle : \n \t1. Motorbike \t2. Truck \t3. Car");
             System.out.println("-> Your choice : ");
+            Vehicle v;
             int c = Integer.parseInt(input.nextLine());
             switch(c){
                 case 1 -> {
-                    vehicles[n] = new Motorbike();
-                    vehicles[n].input();
+                    v = new Motorbike();
+                    v.input();
+                    vehicles.add(v);
                     n++;
                     break;
                 }
                 
                 case 2 -> {
-                    vehicles[n] = new Truck();
-                    vehicles[n].input();
+                    v = new Truck();
+                    v.input();
+                    vehicles.add(v);
                     n++;
                     break;
                 }
                 
                 case 3 -> {
-                    vehicles[n] = new Car();
-                    vehicles[n].input();
+                    v = new Car();
+                    v.input();
+                    vehicles.add(v);
                     n++;
                     break;
                 }
@@ -59,9 +64,9 @@ public class Manager {
     public void output(){
         System.out.println("List of motorbikes :");
         System.out.println("\tID \tCompany \tManufacturing Year \tPrice \tColor \tCapacity");
-        for(int i = 0; i < n; i++){
-            if(vehicles[i] instanceof Motorbike){
-                System.out.println(vehicles[i].toString());
+        for(Vehicle v : vehicles){
+            if(v instanceof Motorbike){
+                System.out.println(v.toString());
                 motorNumber++;
             }
         }
@@ -69,9 +74,9 @@ public class Manager {
         
         System.out.println("List of trucks :");
         System.out.println("\tID \tCompany \tManufacturing Year \tPrice \tColor \tWeight");
-        for(int i = 0; i < n; i++){
-            if(vehicles[i] instanceof Truck){
-                System.out.println(vehicles[i].toString());
+        for(Vehicle v : vehicles){
+            if(v instanceof Truck){
+                System.out.println(v.toString());
                 truckNumber++; 
             }
         }
@@ -79,9 +84,9 @@ public class Manager {
         
         System.out.println("List of cars :");
         System.out.println("\tID \tCompany \tManufacturing Year \tPrice \tColor \tType of engine \tNumber of seats");
-        for(int i = 0; i < n; i++){
-            if(vehicles[i] instanceof Car){
-                System.out.println(vehicles[i].toString());
+        for(Vehicle v : vehicles){
+            if(v instanceof Car){
+                System.out.println(v.toString());
                 carNumber++;
             }
         }
@@ -91,18 +96,18 @@ public class Manager {
     public void getByID(String id){
         System.out.println("List of vehicles :");
         System.out.print("\tID \tCompany \tManufacturing Year \tPrice \tColor");
-        for(int i = 0; i < n; i++){
-            if(vehicles[i].getId().equals(id)){
-                if(vehicles[i] instanceof Motorbike){
+        for(Vehicle v : vehicles){
+            if(v.getId().equals(id)){
+                if(v instanceof Motorbike){
                     System.out.println("\tCapacity");
                 }
-                else if(vehicles[i] instanceof Truck){
+                else if(v instanceof Truck){
                     System.out.println("\tWeight");
                 }
-                else if(vehicles[i] instanceof Car){
+                else if(v instanceof Car){
                     System.out.println("\tType of engine \tNumber of seats");
                 }
-                System.out.println(vehicles[i].toString());
+                System.out.println(v.toString());
             }
         }
     }
@@ -110,21 +115,71 @@ public class Manager {
     public void getByCompany(String company){
         System.out.println("List of vehicles :");
         System.out.print("\tID \tCompany \tManufacturing Year \tPrice \tColor");
-        for(int i = 0; i < n; i++){
-            if(vehicles[i].getCompany().equals(company)){
-                if(vehicles[i] instanceof Motorbike){
+        for(Vehicle v : vehicles){
+            if(v.getCompany().equals(company)){
+                if(v instanceof Motorbike){
                     System.out.println("\tCapacity");
                 }
-                else if(vehicles[i] instanceof Truck){
+                else if(v instanceof Truck){
                     System.out.println("\tWeight");
                 }
-                else if(vehicles[i] instanceof Car){
+                else if(v instanceof Car){
                     System.out.println("\tType of engine \tNumber of seats");
                 }
-                System.out.println(vehicles[i].toString());
+                System.out.println(v.toString());
             }
         }
     }
     
-    public void getByYearFrom()
+    public void getByYearFrom(double from, double to){
+        System.out.println("List of vehicles :");
+        System.out.print("\tID \tCompany \tManufacturing Year \tPrice \tColor");
+        for(Vehicle v : vehicles){
+            if(v.getYear() >= from && v.getYear() <= to){
+                if(v instanceof Motorbike){
+                    System.out.println("\tCapacity");
+                }
+                else if(v instanceof Truck){
+                    System.out.println("\tWeight");
+                }
+                else if(v instanceof Car){
+                    System.out.println("\tType of engine \tNumber of seats");
+                }
+                System.out.println(v.toString());
+            }
+        }
+    }
+    
+    public void getByPriceFrom(double from, double to){
+        System.out.println("List of vehicles :");
+        System.out.print("\tID \tCompany \tManufacturing Year \tPrice \tColor");
+        for(Vehicle v : vehicles){
+            if(v.getPrice() >= from && v.getPrice() <= to){
+                if(v instanceof Motorbike){
+                    System.out.println("\tCapacity");
+                }
+                else if(v instanceof Truck){
+                    System.out.println("\tWeight");
+                }
+                else if(v instanceof Car){
+                    System.out.println("\tType of engine \tNumber of seats");
+                }
+                System.out.println(v.toString());
+            }
+        }
+    }
+    
+    
+    public void sortByCompany(){
+        Collections.sort(vehicles, new Comparator<Vehicle>(){
+            @Override
+            public int compare(Vehicle o1, Vehicle o2) {
+                return o1.getCompany().compareToIgnoreCase(o2.getCompany());
+            }
+        }
+                
+        );
+    }
+    
+    
 }
