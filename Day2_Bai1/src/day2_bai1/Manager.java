@@ -12,6 +12,9 @@ public class Manager {
     public Manager() {
         vehicles = new ArrayList<Vehicle>();
         n = 0;
+        motorNumber = 0;
+        truckNumber = 0;
+        carNumber = 0;
     }
 
     public int getNumberOfVehicle() {
@@ -176,8 +179,7 @@ public class Manager {
             public int compare(Vehicle o1, Vehicle o2) {
                 return o1.getCompany().compareToIgnoreCase(o2.getCompany());
             }
-        }
-                
+            }    
         );
     }
     
