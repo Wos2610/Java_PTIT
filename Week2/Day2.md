@@ -50,7 +50,9 @@ List<data_type> l3 = new Vector<data_type>();
 List<data_type> l4 = new Stack<data_type>();
 ```
 
-`ArrayList` : mảng có kích thước thay đổi được  
+`ArrayList` : 
+- Khác với `Array` thì `Array List` là dynamic và  có kích thước thay đổi được .
+- Các phần tử được lưu trữ theo thứ tự được add() vào.  
 `LinkedList` : dựa trên double-linked list (?)  
 `Vector` : khá giống `Array List`. Điểm khác là `Vector` thì synchronized, `ArrayList` là non-synchronized (?)  
 `Stack` : LIFO
@@ -62,6 +64,7 @@ List<data_type> l4 = new Stack<data_type>();
 - int lastIndexOf(Object o)
 
 - Object remove(int index)
+> https://gpcoder.com/4289-tranh-loi-concurrentmodificationexception-trong-java-nhu-the-nao/
 
 - addElement(Object o)
 - elementAt(int index)
@@ -70,7 +73,7 @@ List<data_type> l4 = new Stack<data_type>();
 
 
 **Phân biệt List và ArrayList**
-- ArratList chỉ dùng cho các kiểu objects  
+- ArrayList chỉ dùng cho các kiểu objects  
 
 | List | ArrayList |  
 | -- | -- |  
@@ -116,3 +119,75 @@ TreeSet sortedSet = new TreeSet<Integer>(s);
 - Object remove(key);
 - Object get(key);
 - boolean containsKey(key);
+
+## **5. Sort**
+| Comparable | Comparator |
+| -- | -- |
+| Single sort | Multiple sort |
+| Affect the original class | Don't affect the original class |
+| compareTo() | compare() |
+| Collections.sort(List) | Collections.sort(List, Comparator) |
+
+- Ví dụ khi sort sử dụng Comparable (nguồn : viettuts)
+```java
+class Student implements Comparable<Student> {
+    private int id;
+    private String name;
+    private int age;
+    private String address;
+ 
+    public Student() {
+    }
+ 
+    public Student(int id, String name, int age, String address) {
+        super();
+        this.id = id;
+        this.name = name;
+        this.age = age;
+        this.address = address;
+    }
+ 
+    // getter & setter
+     
+    @Override
+    public String toString() {
+        return "Student@id=" + id + ",name=" + name 
+                + ",age=" + age + ",address=" + address;
+    }
+ 
+    @Override
+    public int compareTo(Student student) {
+        // sort student's name by ASC
+        return this.getName().compareTo(student.getName());
+    }
+}
+```
+
+- Ví dụ khi sort sử dụng Comparator(nguồn : viettuts)
+```java
+import java.util.*;
+
+public class CollectionsExample4 {
+    public static void main(String args[]) {
+        // create list
+        List<String> list = new ArrayList<String>();
+        // add elements to list
+        list.add("Java");
+        list.add("C");
+        list.add("C++");
+        list.add("PHP");
+        list.add("Python");
+        // sort list
+        Collections.sort(list, new Comparator<String>() {
+            @Override
+            public int compare(String o1, String o2) {
+                return o2.compareTo(o1);
+            }
+        });
+        // show list
+        for (String element : list) {
+            System.out.println(element);
+        }
+    }
+}
+```
