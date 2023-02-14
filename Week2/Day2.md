@@ -3,6 +3,7 @@
 - Là một class cung cấp các static methods (sort, search, ...) được sử dụng trong collection.
 - Chứa các interface và class.
 - Gồm các root interface : Collection, Map, Iterator.
+- Thực chất là thư viện để dùng các hàm sử dụng trong Collection và Map
 
 **Collection** : là một root interface trong Collections
 
@@ -53,6 +54,7 @@ List<data_type> l4 = new Stack<data_type>();
 `ArrayList` : 
 - Khác với `Array` thì `Array List` là dynamic và  có kích thước thay đổi được .
 - Các phần tử được lưu trữ theo thứ tự được add() vào.  
+
 `LinkedList` : dựa trên double-linked list (?)  
 `Vector` : khá giống `Array List`. Điểm khác là `Vector` thì synchronized, `ArrayList` là non-synchronized (?)  
 `Stack` : LIFO
@@ -63,7 +65,8 @@ List<data_type> l4 = new Stack<data_type>();
 - int indexOf(Object o) : Returns the index in this list of the first occurrence of the specified element, or -1 if the List does not contain this element.
 - int lastIndexOf(Object o)
 
-- Object remove(int index)
+- Object remove(int index) : Không dùng for each
+
 > https://gpcoder.com/4289-tranh-loi-concurrentmodificationexception-trong-java-nhu-the-nao/
 
 - addElement(Object o)
@@ -81,8 +84,9 @@ List<data_type> l4 = new Stack<data_type>();
 | List extends Collection | ArrayList extend AbstractList class and implements List interface|
 | Tạo một static array | Tạo một dynamic array | 
 | Không thể mở rộng kích thước | Có thể mở rộng bất kì khi nào cần |
-> Nên dùng List khi cần sử dụng tính đa hình. Khi dùng List thì có thể dễ dàng chuyển sang LinkedList mà không chịu ảnh hưởng của codebase còn lại.
+| Không tạo được object | Tạo được object |
 
+> Nên dùng List khi cần sử dụng tính đa hình. Khi dùng List thì có thể dễ dàng chuyển sang LinkedList mà không chịu ảnh hưởng của codebase còn lại.
 
 
 ## **2. Set Interface**
