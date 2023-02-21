@@ -15,15 +15,21 @@ public class Process {
     
     
     public static void statisticRoom(ArrayList<RoomList> roomLists, ArrayList<Room> rooms){
-        for(RoomList i : roomLists){
-            Room temp = Process.isHaveRoom(rooms, i.getRoomID());
-            if(temp != null){
-                roomNum.put(temp.getType(), roomNum.get(temp.getType()) + 1);
-            }
-        }
+        roomNum.put("VIP room", 0);
+        roomNum.put("High-quality room", 0);
+        roomNum.put("Normal room", 0);
         
-        for(Map.Entry<String, Integer> i : roomNum.entrySet()){
-            System.out.println(i.getKey() + ": " + i.getValue()/roomLists.size());
+        if(roomLists != null && rooms != null){
+            for(RoomList i : roomLists){
+                Room temp = Process.isHaveRoom(rooms, i.getRoomID());
+                if(temp != null){
+                    roomNum.put(temp.getType(), roomNum.get(temp.getType()) + 1);
+                }
+            }
+
+            for(Map.Entry<String, Integer> i : roomNum.entrySet()){
+                System.out.println(i.getKey() + ": " + (float)i.getValue()/roomLists.size());
+            }
         }
     }
     
@@ -49,7 +55,7 @@ public class Process {
         Collections.sort(roomLists, new Comparator<RoomList>(){
             @Override
             public int compare(RoomList o1, RoomList o2) {
-                if(o1.getClientName().compareTo(o2.getClientName()) > 0){
+                if(o1.getClientName().compareTo(o2.getClientName()) < 0){
                     return -1;
                 }
                 else{

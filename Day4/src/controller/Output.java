@@ -14,10 +14,11 @@ public class Output {
         System.out.println("2. Them phong.");
         System.out.println("3. Liet ke thong tin khach hang.");
         System.out.println("4. Liet ke cac phong co san theo phan loai.");
-        System.out.println("5. Thong ke luong khach hang chon thue cac loai phong.");
-        System.out.println("6. Thong tin thue phong theo ten khach hang.");
-        System.out.println("7. Sap xep khach hang theo ten.");
-        System.out.println("8. Sap xep khach hang theo thoi gian thue phong.");
+        System.out.println("5. Them danh sach phong duoc thue.");
+        System.out.println("6. Thong ke luong khach hang chon thue cac loai phong.");
+        System.out.println("7. Thong tin thue phong theo ten khach hang.");
+        System.out.println("8 Sap xep khach hang theo ten.");
+        System.out.println("9. Sap xep khach hang theo thoi gian thue phong.");
         System.out.println("0. Exit.");
     }
     public void clientOutput(ArrayList<Client> clients){
@@ -53,7 +54,7 @@ public class Output {
     public void roomListOutput(ArrayList<RoomList> roomLists, ArrayList<Client> clients){
         System.out.println("List of rented room: ");
         for(RoomList i : roomLists){
-            System.out.println("\tRoom ID : " + i.getRoomID());
+            System.out.println("\t* Room ID : " + i.getRoomID());
             System.out.println("\tClient ID: " + i.getClientID());
             System.out.print("\tClient name : ");
             

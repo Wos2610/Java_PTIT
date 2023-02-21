@@ -16,6 +16,7 @@ public class Application {
     public Application() {
         clients = new ArrayList<>();
         rooms = new ArrayList<>();
+        roomLists = new ArrayList<>();
         input = new Input();
         output = new Output();
     }
@@ -43,20 +44,26 @@ public class Application {
                     break;
                 }
                 case 5:{
+                    roomLists.add(input.inputRoomList(clients));
+                    break;
+                }
+                case 6:{
                     Process.statisticRoom(roomLists, rooms);
                     break;
                 }
                 
-                case 6:{
+                case 7:{
                     output.roomListOutput(roomLists, clients);
                     break;
                 }
-                case 7:{
+                case 8:{
                     Process.sortRoomListByClientName(roomLists);
+                    output.roomListOutput(roomLists, clients);
                     break;
                 }
-                case 8:{
+                case 9:{
                     Process.sortRoomListByRentTime(roomLists);
+                    output.roomListOutput(roomLists, clients);
                     break;
                 }
             }
