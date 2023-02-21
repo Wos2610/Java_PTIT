@@ -1,8 +1,35 @@
 
+# Package
+- Giống như một folder.
+- Phải được đặt ở dòng ***đầu tiên*** của file.
+- Hai packages có thể có class có tên chung nhưng khi dùng phải dùng tên đầy đủ.  
+### Có 3 cách sử dụng member của package khác:
+- Full-name : 
+```java
+graphics.Rectangle myRect = new graphics.Rectangle();
+```
+
+- Import member của package đó 
+```java
+import graphics.Rectangle;
+...
+Rectangle myRectangle = new Rectangle();
+```
+
+- Import toàn bộ package:
+```java
+import graphics.*;
+...
+Rectangle myRectangle = new Rectangle();
+```
+
 # Exception Handling
+![](https://cdn.rollbar.com/wp-content/uploads/2021/07/java-exceptions-hierarchy-example.png)
+
+![](https://lh5.googleusercontent.com/WqqNoyFEkZXfmZBBQjgIutY72_BUV6_By_BAe7Ih9u36HfelS3nTWQEYtdRUkQS32Tuhg9P9CUXo-jgvOpkO84vLm2viI4Od0BNustwONdMm7DKZnKC6kyVHyRJbsESLIPV4uBU)
 - Xử lý các lỗi runtime.
 - Checked Exception : Được kiểm tra tại compile time.
-- Unchecked Exception : Được kiểm tra tại runtime, thường do lỗi của coder.
+- Unchecked Exception : Được kiểm tra tại runtime, thường do lỗi của coder. Có thể dự đoán và ngăn chặn trước.
 - Error
 ## **Các từ khóa Exception Handling**
 ### 1. Khối lệnh try
@@ -44,3 +71,16 @@ public void tinh() throws FileNotFoundException
 
 ## **Custom Exception**
 - Extends Exception class.
+- Tự custom Exception của mình.
+```java
+class ThrowStatement extends Exception {
+    public static void exp(int ptr) {
+        if (ptr == 0)
+        throw new NullPointerException();
+    }
+    public static void main(String[] args) {
+        int i = 0;
+        ThrowStatement.exp(i);
+    }
+}
+``
