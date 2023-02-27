@@ -27,6 +27,8 @@ Rectangle myRectangle = new Rectangle();
 ![](https://cdn.rollbar.com/wp-content/uploads/2021/07/java-exceptions-hierarchy-example.png)
 
 ![](https://lh5.googleusercontent.com/WqqNoyFEkZXfmZBBQjgIutY72_BUV6_By_BAe7Ih9u36HfelS3nTWQEYtdRUkQS32Tuhg9P9CUXo-jgvOpkO84vLm2viI4Od0BNustwONdMm7DKZnKC6kyVHyRJbsESLIPV4uBU)
+- Exception là các sự kiện làm ảnh hưởng đến dòng chảy bình thường của chương trình.
+- Thay vì khi gặp lỗi chương trình dừng lại thì sẽ throw exception và bên dưới tiếp tục chạy tiếp.
 - Xử lý các lỗi runtime.
 - Checked Exception : Được kiểm tra tại compile time.
 - Unchecked Exception : Được kiểm tra tại runtime, thường do lỗi của coder. Có thể dự đoán và ngăn chặn trước.
@@ -52,6 +54,7 @@ Rectangle myRectangle = new Rectangle();
 ### 4. Từ khóa throw
 - Dùng để ném ra một `Exception` cụ thể.
 - Thường dùng cho Exception mà người dùng tự định nghĩa.
+- Sau throw là một instance.
 ```java
 throw new ArithmeticException("Not valid");
 ```
@@ -73,14 +76,14 @@ public void tinh() throws FileNotFoundException
 - Extends Exception class.
 - Tự custom Exception của mình.
 ```java
-class ThrowStatement extends Exception {
+class Project2 extends Exception {
     public static void exp(int ptr) {
         if (ptr == 0)
         throw new NullPointerException();
     }
     public static void main(String[] args) {
         int i = 0;
-        ThrowStatement.exp(i);
+        Project2.exp(i);
     }
 }
 ``
