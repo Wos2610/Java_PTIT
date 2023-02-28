@@ -87,8 +87,9 @@ public class JLabel extends JComponent implements SwingConstants, Accessible
 ```java
 public class JComboBox extends JComponent implements ItemSelectable, ListDataListener, ActionListener, Accessible
 ```
+## 8. Event Handling
 
-## 8. ActionEvent
+## 9. ActionEvent
 - Syntax:
 ```java
 public class ActionEvent extends AWTEvent
