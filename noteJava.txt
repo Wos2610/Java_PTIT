@@ -1,0 +1,31 @@
+J01007 : Có trường hợp số 0
+J02005 : Nhớ phải sắp xếp
+J03024 : check invalid kĩ
+J01010 : switch-case không dùng bản mới được phải có break
+J03013 : Nếu kết quả có số chữ số nhỏ hơn gốc thì thêm 1 chữ số 0 đằng trước chứ không phải n chữ số 0
+	 Có trường hợp 2 số trên 1 dòng nên dùng nextBigInteger
+J03015 : Chú ý khi loại bỏ số 0 ở đầu, phải để s.length > 1
+J03025 : Phải thay đổi 1 kí tự. Nếu > 1 -> F, = 1 -> T, = 0 & n % 2 == 0 -> F, = 0 && n % 2 == 1 -> F
+J04005 : Phải nhập nextLine và nhập Double thì input phải dấu phảy.
+J05033 : Khi nhập nếu dùng 3 nextInt() sẽ bị MLE, phải sử dụng nextLine()
+J05081 : Nên dùng nextLine() rồi parseInt để đỡ bị mất chữ
+J08020 : Lưu ý khi nhập input và phải xét cả trường hợp đóng ngoặc mà ko có mở ngoặc trong stack.
+J08024 : Chú ý trường hợp chia cho 1
+JKT015 : Phải chuyển st1 sang st2 rồi mới in
+J07006 : File DATA.in lưu một ArrayList<Integer> theo kiểu Object.
+J07017 : Khong dung sieve duoc vi ham main fixed
+J07030 : Chú ý điều kiện n < m
+J07052 : Phải sort cả list sinh viên rồi mới lấy chỉ tiêu, vì nếu lấy list điểm riêng thì sẽ không đúng.
+J07053 : Phải dùng mark = (int) Math.round(tmp) để làm tròn.
+J07059 : Chú ý so sánh date + time
+J07072 : Tên đệm là tên - họ - lastName
+J04009 : Diện tích tam giác: các cạnh phải theo 1 thứ tự nhất định mới ac
+J05023 : Khóa theo lớp chứ không phải mã
+J05024 : trừ các sinh viên lớp bắt đầu bằng chữ E
+J05036 : làm tròn đến double Math.round((double) 0.05 * nhap * sl); mới đúng thiếu double sẽ sai
+J05037 : nếu ban % 100 != 0 thì đều tăng hàng trăm lên 1 đơn vị và đằng sau = 0
+J07013 : Rất ba chấm
+J07036 : Phải chú ý điểm in ra là float sẽ là float còn float.0 thì sẽ là int
+J05055 + J05056: Siêu khó, xử lý time lằng nhằng, chú ý trường hợp 00:00:00, nếu ko String.format thì sẽ in ra 00:00
+J06003 : Chú ý phần Bai tap dang ky tranh in nhieu lan
+J07011 : Can check != ""

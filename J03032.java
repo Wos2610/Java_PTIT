@@ -1,6 +1,7 @@
 package newproject1;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.HashSet;
@@ -10,19 +11,20 @@ import java.util.Scanner;
 import java.util.Set;
 
 public class NewProject1 {
-
-    private static boolean check(String s) {
-        int n = s.length();
-        String s0 = new StringBuilder(s).reverse().toString();
-        if (s0.equals(s) == false) {
-            return false;
+    private static void change(String s){
+        s = s.replaceAll("\\s+", " ").trim();
+        String[] s0 = s.split("\\s+");
+        int n = s0.length;
+        for(int i = 0; i < n; i++){
+            String tmp = new StringBuilder(s0[i]).reverse().toString();
+            s0[i] = tmp;
         }
         
-        for (int i = 0; i < n; i++) {
-            if(s.charAt(i) != '2' && s.charAt(i) != '3' && s.charAt(i) != '5' && s.charAt(i) != '7' ) return false;
+        for(String i : s0){
+            System.out.print(i + " ");
         }
-        return true;
     }
+    
 
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
@@ -30,12 +32,8 @@ public class NewProject1 {
         sc.nextLine();
         for (int i = 1; i <= T; i++) {
             String s = sc.nextLine();
-            if (check(s) == true) {
-                System.out.println("YES");
-            } else {
-                System.out.println("NO");
-            }
+            change(s);
+            System.out.println();
         }
-
     }
 }

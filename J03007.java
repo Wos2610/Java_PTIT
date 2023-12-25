@@ -17,10 +17,14 @@ public class NewProject1 {
         if (s0.equals(s) == false) {
             return false;
         }
-        
-        for (int i = 0; i < n; i++) {
-            if(s.charAt(i) != '2' && s.charAt(i) != '3' && s.charAt(i) != '5' && s.charAt(i) != '7' ) return false;
+        if (s.charAt(0) != '8' || s.charAt(n - 1) != '8') {
+            return false;
         }
+        int sum = 0;
+        for (int i = 0; i < n; i++) {
+            sum += (s.charAt(i) - '0');
+        }
+        if(sum % 10 != 0) return false;
         return true;
     }
 

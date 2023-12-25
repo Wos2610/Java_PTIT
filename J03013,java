@@ -1,0 +1,38 @@
+package danhsachsinhvien1;
+
+import java.io.*;
+import java.math.BigInteger;
+import java.time.LocalTime;
+import java.time.format.DateTimeFormatter;
+import java.time.temporal.ChronoUnit;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Scanner;
+
+public class NewProject1 {
+    static String gcd(BigInteger a, BigInteger b){
+        int n = a.toString().length();
+        int m = b.toString().length();
+        int x = Math.max(n, m);
+        BigInteger y = a.subtract(b).abs();
+        String res = y.toString();
+        while(res.length() != x){
+            res = "0" + res;
+        }
+        return res;
+    }
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int t = Integer.parseInt(sc.nextLine());
+        for(int i = 0; i < t; i++){
+            BigInteger a = sc.nextBigInteger();
+            BigInteger b = sc.nextBigInteger();
+            System.out.println(gcd(a, b));
+        }
+    }
+}
+
+
